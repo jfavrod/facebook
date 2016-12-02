@@ -48,9 +48,11 @@ class Facebook
     }
 
     
-    /*
+    /**
      * Used to generate an access token needed for
      * Facebook Graph API calls.
+     * 
+     * @return string A Facebook Graph API App Access Token.
      */
     
     protected function appAccessToken()
@@ -72,9 +74,12 @@ class Facebook
 
 
     /**
+     * @return stdClass Containing stdClass objects which contain
+     * Facebook posts. Each can contain the following fields:
      * 
-     * @return stdClass Contains stdClass objects containing Facebook
-     * posts. Each can contain the following fields:
+     * message => The content of a user's post on Facebook.
+     * created_time => The time the post was created.
+     * id => Identification string.
      */
     
     public function getPosts()
@@ -90,7 +95,7 @@ class Facebook
         curl_setopt($curl, CURLOPT_URL, $url);
 
         $response = json_decode(curl_exec($curl));
-        return $response->posts;
+        return $response->posts->data;
     }
 }
 
