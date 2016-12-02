@@ -1,6 +1,7 @@
 <?php
 namespace Epoque\Facebook;
 
+
 /**
  * Facebook
  * 
@@ -33,19 +34,15 @@ class Facebook
     
     public function __construct($spec=[])
     {
+        foreach ($this->defaults as $key => $val) {
+            $this->config[$key] = $this->defaults[$key];
+        }
+        
         if (is_array($spec) && !empty($spec)) {
             foreach ($spec as $key => $val) {
-                if (!array_key_exists($key, $this->defaults)) {
+                if (array_key_exists($key, $this->config)) {
                     $this->config[$key] = $val;
                 }
-                else {
-                    $this->config[$key] = $this->defaults[$key];
-                }
-            }
-        }
-        else {
-            foreach ($this->defaults as $key => $val) {
-                $this->config[$key] = $this->defaults[$key];
             }
         }
     }
