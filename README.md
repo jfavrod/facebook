@@ -1,4 +1,6 @@
 @version 0.0.1
 
-Requires php curl.
+Required PHP Extensions:
+* json
+* curl
 
