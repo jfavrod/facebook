@@ -97,5 +97,31 @@ class Facebook
         $response = json_decode(curl_exec($curl));
         return $response->posts->data;
     }
+    
+    
+    /**
+     * Retrieve an event from the Facebook Graph API.
+     * 
+     * @param string $eventId The Facebook Graph API id of
+     * the event node.
+     * @return stdClass An object representing the given event node.
+     * 
+     * https://developers.facebook.com/docs/graph-api/reference/event/
+     */
+    
+    public function getEvent($eventId='')
+    {
+        $url  = $this->config['gapi'] . '/' .$this->config['version'];
+        $url .= '/'. $eventId;
+        $url .= '?access_token=' . $this->appAccessToken();
+
+        $curl = curl_init();
+        curl_setopt($curl, CURLOPT_USERAGENT, $this->config['user_agent']);
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, TRUE);
+        curl_setopt($curl, CURLOPT_URL, $url);
+
+        $response = json_decode(curl_exec($curl));
+        return $response;
+    }
 }
 
