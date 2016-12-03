@@ -19,7 +19,7 @@ class Facebook
         'id' => '',
         'secret' => '',
         'node' => 'me',
-        'user_agent' => 'Epoque\\Facebook ()'
+        'user_agent' => 'Epoque\\Facebook (http://github.com/not--p/facebook)'
     ];
 
     
@@ -106,7 +106,7 @@ class Facebook
      * the event node.
      * @return stdClass An object representing the given event node.
      * 
-     * https://developers.facebook.com/docs/graph-api/reference/event/
+     * https://developers.facebook.com/docs/graph-api/reference/event
      */
     
     public function getEvent($eventId='')

@@ -1,12 +1,6 @@
-@version 0.0.1
-
+@version 0.0.2
 
 Required PHP Extensions:
 * json
 * curl
-
-
-Conventions Used:
-* PHP-FIG style
-* Variable names representing IDs form: varNameId
 
